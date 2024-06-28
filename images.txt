@@ -35,4 +35,4 @@ postgres
 sonarqube
 atlassian/confluence-server
 redmine
-
+ubuntu
