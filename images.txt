@@ -36,3 +36,5 @@ sonarqube
 atlassian/confluence-server
 redmine
 ubuntu
+apache/hertzbeat
+apache/hertzbeat-collector
