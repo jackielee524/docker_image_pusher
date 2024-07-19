@@ -4,6 +4,7 @@
 #xhofe/alist:latest
 #支持指定架构
 #--platform=linux/arm64 xiaoyaliu/alist
+gitlab/gitlab-ee
 gitlab/gitlab-ce
 gitlab/gitlab-runner
 codeclimate/codeclimate
