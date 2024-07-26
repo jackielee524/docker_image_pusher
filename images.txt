@@ -6,7 +6,6 @@
 #--platform=linux/arm64 xiaoyaliu/alist
 gitlab/gitlab-ee
 gitlab/gitlab-ce
-gitlab/gitlab-ce:v17.1.3
 gitlab/gitlab-runner
 codeclimate/codeclimate
 codeclimate/codeclimate-duplication
