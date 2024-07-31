@@ -6,7 +6,7 @@
 #--platform=linux/arm64 xiaoyaliu/alist
 gitlab/gitlab-ee
 gitlab/gitlab-ce
-bitnami/redmine
+#bitnami/redmine
 gitlab/gitlab-runner
 codeclimate/codeclimate
 codeclimate/codeclimate-duplication
