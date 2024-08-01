@@ -6,7 +6,6 @@
 #--platform=linux/arm64 xiaoyaliu/alist
 gitlab/gitlab-ee
 gitlab/gitlab-ce
-#bitnami/redmine
 gitlab/gitlab-runner
 codeclimate/codeclimate
 codeclimate/codeclimate-duplication
@@ -38,6 +37,8 @@ sonarqube
 atlassian/confluence-server
 zerotier/zerotier
 redmine
+#bitnami/redmine
+easysoft/zentao
 ubuntu
 apache/hertzbeat
 apache/hertzbeat-collector
