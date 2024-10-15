@@ -7,7 +7,6 @@ on:
   schedule:
     - cron: '00 16,4 * * *'
 
-
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
