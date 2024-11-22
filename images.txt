@@ -42,3 +42,4 @@ easysoft/zentao
 ubuntu
 apache/hertzbeat
 apache/hertzbeat-collector
+dockurr/macos
