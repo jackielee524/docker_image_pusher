@@ -46,6 +46,7 @@ dockurr/macos
 grafana/grafana
 jiangrui1994/cloudsaver
 lobehub/lobe-chat
+buildroot/base:20210922.2200
 #
 #
 #Mon Jan 19 10:18:21 CST 2026
