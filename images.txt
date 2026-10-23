@@ -34,11 +34,11 @@ gitlab/gitlab-runner
 #codeclimate/codeclimate-nodesecurity
 postgres
 sonarqube
-atlassian/confluence-server
+#atlassian/confluence-server
 zerotier/zerotier
 redmine
 #bitnami/redmine
-easysoft/zentao
+#easysoft/zentao
 ubuntu
 apache/hertzbeat
 apache/hertzbeat-collector
