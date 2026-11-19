@@ -19,6 +19,14 @@ jobs:
     name: Pull
     runs-on: ubuntu-latest
     steps:
+    - name: Cleanup workspace
+      if: always()
+      run: |
+        df -h
+        docker system prune -af || true
+        sudo apt-get clean || true
+        df -h
+    
     - name: Before freeing up disk space
       run: |
         echo "Before freeing up disk space"
