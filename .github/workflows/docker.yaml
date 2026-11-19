@@ -23,6 +23,11 @@ jobs:
       run: |
         echo "Before freeing up disk space"
         echo "=============================================================================="
+        # 清理所有未使用的镜像、容器、网络和构建缓存
+        docker system prune -af
+        # 显式清理 BuildKit 缓存，这是 docker system prune 可能遗漏的部分
+        docker builder prune -af
+        echo "Disk usage after cleanup:"
         df -hT
         echo "=============================================================================="
 
