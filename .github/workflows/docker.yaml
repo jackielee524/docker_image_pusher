@@ -172,6 +172,7 @@ jobs:
             echo "=============================================================================="
             docker rmi $image
             docker rmi $new_image
+            docker image prune -af || true
             echo "磁盘空间清理完毕"
             df -hT
             AVAILABLE_KB=$(df / | awk 'NR==2 {print $4}')
@@ -186,3 +187,19 @@ jobs:
             echo "=============================================================================="     
             
         done < images.txt
+
+        - name: Final Docker Cleanup
+              if: always()
+              run: |
+                echo "===== Final cleanup ====="
+        
+                docker ps -aq | xargs -r docker rm -f || true
+                docker image prune -af || true
+                docker builder prune -af || true
+        
+                sudo apt-get clean || true
+        
+                echo "===== Final disk status ====="
+                df -hT
+                df -i
+                docker system df || true
