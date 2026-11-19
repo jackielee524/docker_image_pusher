@@ -36,8 +36,9 @@ jobs:
         remove-dotnet: 'true'
         remove-haskell: 'true'
         # 如果空间还是不够用，可以把以下开启，清理出更多空间
-        # remove-android: 'true'
-        # remove-codeql: 'true'
+        remove-android: 'true'      # 开启此项可释放约 10 GB[reference:4]
+        remove-codeql: 'true'       # 开启此项可释放约 5.4 GB[reference:5]
+        remove-docker-images: 'true' # 关键：清除预装的 Docker 镜像[reference:6]
         build-mount-path: '/var/lib/docker/'
 
     - name: Restart docker
@@ -151,6 +152,14 @@ jobs:
             docker rmi $image
             docker rmi $new_image
             echo "磁盘空间清理完毕"
+            df -hT
+            AVAILABLE_KB=$(df / | awk 'NR==2 {print $4}')
+            THRESHOLD_KB=$((500 * 1024)) # 500 MB 阈值
+            if [ "$AVAILABLE_KB" -lt "$THRESHOLD_KB" ]; then
+                echo "警告：可用空间低于 500MB，执行紧急 Docker 清理..."
+                docker system prune -af
+                docker builder prune -af
+            fi
             echo "=============================================================================="
             df -hT
             echo "=============================================================================="     
