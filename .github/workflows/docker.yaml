@@ -29,6 +29,14 @@ jobs:
         docker builder prune -af
         echo "Disk usage after cleanup:"
         df -hT
+        echo "=== 磁盘块使用情况（字节） ==="
+        df -h /
+        echo "=== Inode 使用情况（文件数量） ==="
+        df -i /
+        echo "=== Docker 详细空间占用 ==="
+        docker system df -v
+        echo "=== 根目录下最大的 10 个目录 ==="
+        sudo du -h -d1 / 2>/dev/null | sort -rh | head -10
         echo "=============================================================================="
 
     # 增加可用磁盘空间
@@ -159,9 +167,9 @@ jobs:
             echo "磁盘空间清理完毕"
             df -hT
             AVAILABLE_KB=$(df / | awk 'NR==2 {print $4}')
-            THRESHOLD_KB=$((500 * 1024)) # 500 MB 阈值
+            THRESHOLD_KB=$((1 * 1024 * 1024)) # 1GB 阈值
             if [ "$AVAILABLE_KB" -lt "$THRESHOLD_KB" ]; then
-                echo "警告：可用空间低于 500MB，执行紧急 Docker 清理..."
+                echo "警告：可用空间低于 1GB，执行紧急 Docker 清理..."
                 docker system prune -af
                 docker builder prune -af
             fi
